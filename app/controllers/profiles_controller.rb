@@ -1,4 +1,5 @@
 class ProfilesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_user, only: [ :show, :edit, :update ]
 
   def show
@@ -21,7 +22,7 @@ class ProfilesController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:user_id])
+    @user = User.find_by(params[:user_id])
   end
 
   def profile_params

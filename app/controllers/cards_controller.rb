@@ -1,9 +1,10 @@
 class CardsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_card, only: %i[ show edit update destroy ]
 
   # GET /cards or /cards.json
   def index
-    @cards = Card.all
+    @cards = current_user.cards
   end
 
   # GET /cards/1 or /cards/1.json
@@ -21,7 +22,7 @@ class CardsController < ApplicationController
 
   # POST /cards or /cards.json
   def create
-    @card = Card.new(card_params)
+    @card = current_user.cards.new(card_params)
 
     respond_to do |format|
       if @card.save

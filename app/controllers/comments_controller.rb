@@ -1,4 +1,6 @@
 class CommentsController < ApplicationController
+  before_action :authenticate_user!
+
   def create
     @card = Card.find(params[:card_id])
     @comment = @card.comments.create(params[:comment].permit(:body))
