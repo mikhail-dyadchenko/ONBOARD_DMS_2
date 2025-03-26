@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @card %>
+
+<div>
+  <%= link_to "Edit this card", edit_admin_card_path(@card) %> |
+  <%= link_to "Back to cards", admin_cards_path %>
+
+  <%= button_to "Destroy this card", [:admin, @card], method: :delete %>
+</div>
+
+<h2>Add a comment:</h2>
+<%= render "admin/comments/form" %>
+<%= turbo_stream_from "comments" %>
+
+<h2>Comments</h2>
+<div id="comments">
+  <%= render @card.comments %>
+</div>

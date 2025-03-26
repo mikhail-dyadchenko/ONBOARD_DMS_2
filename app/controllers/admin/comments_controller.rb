@@ -1,17 +1,17 @@
-class CommentsController < ApplicationController
+class Admin::CommentsController < ApplicationController
   before_action :authenticate_user!
 
   def create
     @card = Card.find(params[:card_id])
     @comment = @card.comments.create(params[:comment].permit(:body))
-    redirect_to card_path(@card)
+    redirect_to admin_card_path(@card)
   end
 
   def destroy
     @card = Card.find(params[:card_id])
     @comment = @card.comments.find(params[:id])
     @comment.destroy
-    redirect_to card_path(@card)
+    redirect_to admin_card_path(@card)
   end
 
   private

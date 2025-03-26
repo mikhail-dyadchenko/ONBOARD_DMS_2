@@ -19,26 +19,7 @@
 
   <body>
 
-    <nav class="S_MenuBar">
-      <% if user_signed_in? && current_user.admin? %>
-        <%= link_to "Главная", admin_cards_url %>
-      <% else %>
-        <%= link_to "Главная", root_url %>
-      <% end %>
-
-      <%= link_to "Мой профиль", profiles_show_url %>
-
-      <div>
-        <% if user_signed_in? %>
-          <%= link_to current_user.email, edit_user_registration_path %>
-          <%= link_to "Выйти", destroy_user_session_path, data: { "turbo-method": :delete } %>
-        <% else %>
-          <%= link_to "Войти", new_user_session_path %>
-          <%= link_to "Зарегистрироваться", new_user_registration_path %>
-        <% end %>
-      </div>
-    </nav>
-
+    <%= render "menubar" %>
 
     <%= yield %>
   </body>

@@ -3,16 +3,15 @@ Rails.application.routes.draw do
   get "profiles/edit"
   get "profiles/update"
   devise_for :users
-  resources :cards do
-    resources :comments
-  end
-
-  resources :users do
-    resource :profile, only: [ :show, :edit, :update ]
-  end
 
   namespace :admin do
-    resources :cards, only: [ :index ]
+    resources :cards do
+      resources :comments, only: [ :create, :destroy ]
+    end
+
+    resources :users do
+      resource :profile, only: [ :show, :edit, :update ]
+    end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
