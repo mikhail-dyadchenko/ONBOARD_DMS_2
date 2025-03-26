@@ -1,10 +1,14 @@
 class CardsController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_card, only: %i[ show edit update destroy ]
 
   # GET /cards or /cards.json
   def index
-    @cards = current_user.cards
+    if current_user
+      @cards = current_user.cards
+    else
+      @cards = Card.all
+    end
   end
 
   # GET /cards/1 or /cards/1.json
