@@ -4,7 +4,10 @@ Rails.application.routes.draw do
   get "profiles/update"
   devise_for :users
 
+  resources :cards, only: [ :index, :show ]
+
   namespace :admin do
+    resources :cards, except: [ :index, :show ]
     resources :cards do
       resources :comments, only: [ :create, :destroy ]
     end

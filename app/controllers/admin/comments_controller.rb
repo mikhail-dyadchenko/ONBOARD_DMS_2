@@ -19,4 +19,8 @@ class Admin::CommentsController < ApplicationController
     def set_card
       @card = Card.find(params[:card_id])
     end
+
+    def comment_params
+      params.require(:comment).permit(:body)
+    end
 end
