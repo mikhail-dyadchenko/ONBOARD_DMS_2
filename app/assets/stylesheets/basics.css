@@ -4,6 +4,8 @@
 
   body {
     font-family: 'Geologica', Arial, Helvetica, sans-serif;
+    /* margin-top: 16px; */
+    padding: 16px;
   }
   
   .menuBar {
@@ -14,4 +16,6 @@
   h1 {
     font-family: 'Bounded', Arial, Helvetica, sans-serif;
     font-size: 48px;
+    margin-top: 24px;
   }
+
