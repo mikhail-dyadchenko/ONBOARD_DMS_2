@@ -1,0 +1,17 @@
+* {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Geologica', Arial, Helvetica, sans-serif;
+  }
+  
+  .menuBar {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  h1 {
+    font-family: 'Bounded', Arial, Helvetica, sans-serif;
+    font-size: 48px;
+  }
