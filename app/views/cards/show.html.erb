@@ -4,9 +4,11 @@
 
 <div>
   <%= link_to "Edit this card", edit_admin_card_path(@card) %> |
-  <%= link_to "Back to cards", admin_cards_path %>
-
-  <%= button_to "Destroy this card", [:admin, @card], method: :delete %>
+  <%= link_to "Back to cards", cards_path %>
+  
+  <% if user_signed_in? && current_user.admin? %>
+    <%= button_to "Destroy this card", [:admin, @card], method: :delete %>
+  <%end%>
 </div>
 
 <h2>Add a comment:</h2>

@@ -2,8 +2,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    can :read, Card, public: true
-    can :read, Comment, public: true
+    can :read, Card
+    can :read, Comment
 
     return unless user.present?
     can :manage, Card, user: user

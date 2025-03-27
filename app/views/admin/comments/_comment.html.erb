@@ -1,7 +1,0 @@
-<div id="<%= dom_id comment %>">
-  
-  <p><%= comment.body %></p>
-
-<p>
-  <%= link_to "Destroy Comment", [:admin, comment.card, comment], data: { turbo_stream: false, turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
-</p>
